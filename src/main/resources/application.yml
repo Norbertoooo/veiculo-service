@@ -4,7 +4,7 @@ micronaut:
 
 datasources:
   default:
-    url: jdbc:postgresql://localhost:5432/veiculodb
+    url: jdbc:postgresql://${DATASOURCE_HOST:localhost}:${DATASOURCE_PORT:5432}/veiculodb
     driverClassName: org.postgresql.Driver
     username: veiculodb
     password: 'veiculodb'
@@ -25,4 +25,4 @@ consul:
     registration:
       enabled: true
     default-zone:
-      - localhost:8500
+      - ${CONSUL_DEFAULT_ZONE:localhost}:${CONSUL_PORT:8500}
