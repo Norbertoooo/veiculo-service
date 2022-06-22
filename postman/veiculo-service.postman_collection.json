@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "7e61e63e-6f52-4992-9baf-698caa99e099",
+		"name": "veiculo-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6955661"
+	},
+	"item": [
+		{
+			"name": "obter veiculo pelo id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{veiculo-service-host}}/veiculos/7",
+					"host": [
+						"{{veiculo-service-host}}"
+					],
+					"path": [
+						"veiculos",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "inserir novo veículo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"marca\": \"asas\",\r\n    \"modelo\": \"assa\",\r\n    \"placa\": \"sasaa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{veiculo-service-host}}/veiculos",
+					"host": [
+						"{{veiculo-service-host}}"
+					],
+					"path": [
+						"veiculos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obter veículos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{veiculo-service-host}}/veiculos",
+					"host": [
+						"{{veiculo-service-host}}"
+					],
+					"path": [
+						"veiculos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "vericar saúde da aplicação",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{veiculo-service-host}}/health",
+					"host": [
+						"{{veiculo-service-host}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "vericar métricas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{veiculo-service-host}}/metrics",
+					"host": [
+						"{{veiculo-service-host}}"
+					],
+					"path": [
+						"metrics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "vericar métrica de criação de novo veículo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{veiculo-service-host}}/metrics/veiculo.create",
+					"host": [
+						"{{veiculo-service-host}}"
+					],
+					"path": [
+						"metrics",
+						"veiculo.create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "vericar métricas promotheus",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{veiculo-service-host}}/prometheus",
+					"host": [
+						"{{veiculo-service-host}}"
+					],
+					"path": [
+						"prometheus"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "veiculo-service-host",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
