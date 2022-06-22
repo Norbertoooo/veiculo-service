@@ -21,3 +21,34 @@
 - [https://www.testcontainers.org/](https://www.testcontainers.org/)
 
 
+## Instruções para executar utilizando docker
+
+### Para criar o .jar da aplicação na pasta /target
+
+    mvn package -Dmaven.test.skip
+
+### Para criar a imagem docker com nome veiculo-service
+    
+    docker build . --tag veiculo-service
+
+### Para criar o container docker com nome veiculo-service
+
+    docker run -d veiculo-service
+
+## Instruções para utilizar docker-compose
+
+### Para subir todos os serviços
+    
+    docker-compose -f .\docker\veiculo-compose.yml up -d
+
+### Para parar todos os serviços
+    
+    docker-compose -f .\docker\veiculo-compose.yml stop
+
+### Para iniciar todos os serviços já existentes
+
+    docker-compose -f .\docker\veiculo-compose.yml start
+
+### Para derrubar todos os serviços (excluindo os containers)
+
+    docker-compose -f .\docker\veiculo-compose.yml down
