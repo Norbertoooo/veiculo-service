@@ -1,0 +1,20 @@
+global:
+  scrape_interval: 1m
+
+scrape_configs:
+  - job_name: "prometheus"
+    scrape_interval: 1m
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  - job_name: "veiculo-service"
+    metrics_path: /prometheus
+    static_configs:
+      ## em caso de rodar o microsserviço local, colocar o ip da máquina
+      - targets: ["172.18.192.1:8080"]
+
+remote_write:
+  - url: "localhost:3000"
+    basic_auth:
+      username: "admin"
+      password: "admin"
