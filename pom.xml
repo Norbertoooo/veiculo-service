@@ -115,6 +115,14 @@
       <groupId>io.micronaut.discovery</groupId>
       <artifactId>micronaut-discovery-client</artifactId>
     </dependency>
+    <dependency>
+      <groupId>io.micronaut</groupId>
+      <artifactId>micronaut-management</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.micronaut.micrometer</groupId>
+      <artifactId>micronaut-micrometer-registry-prometheus</artifactId>
+    </dependency>
   </dependencies>
 
   <build>

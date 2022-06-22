@@ -1,6 +1,25 @@
 micronaut:
   application:
     name: veiculoService
+  metrics:
+    enabled: true
+    export:
+      prometheus:
+        enabled: true
+        step: PT1M
+        descriptions: true
+
+endpoints:
+  health:
+    enabled: true
+  info:
+    enabled: true
+    sensitive: false
+  metrics:
+    enabled: true
+    sensitive: false
+  prometheus:
+    sensitive: false
 
 datasources:
   default:
