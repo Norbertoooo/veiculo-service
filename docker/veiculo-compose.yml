@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+
+  veiculo-db:
+    container_name: veiculo-db
+    image: postgres
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: veiculodb
+      POSTGRES_DB: veiculodb
+      POSTGRES_PASSWORD: veiculodb
+
+  consul:
+    container_name: consul
+    image: bitnami/consul:latest
+    ports:
+      - '8300:8300'
+      - '8301:8301'
+      - '8301:8301/udp'
+      - '8500:8500'
+      - '8600:8600'
+      - '8600:8600/udp'
+
+  prometheus:
+    container_name: prometheus
+    image: bitnami/prometheus
+    ports:
+      - '9090:9090'
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - monitoring
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana
+    user: 'grafana'
+    ports:
+      - '3000:3000'
+    depends_on:
+      - prometheus
+    networks:
+      - monitoring
+
+networks:
+  monitoring:
+    driver: bridge
