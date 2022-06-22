@@ -1,6 +1,10 @@
 package com.vitu.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import io.micronaut.data.annotation.DateCreated;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -17,6 +21,10 @@ public class Veiculo {
 
     private String marca;
 
+    @DateCreated
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
+    private LocalDateTime criadoEm;
+
     public Veiculo() {
     }
 
@@ -25,6 +33,14 @@ public class Veiculo {
         this.placa = placa;
         this.modelo = modelo;
         this.marca = marca;
+    }
+
+    public LocalDateTime getCriadoEm() {
+        return criadoEm;
+    }
+
+    public void setCriadoEm(LocalDateTime criadoEm) {
+        this.criadoEm = criadoEm;
     }
 
     public String getPlaca() {
@@ -66,6 +82,7 @@ public class Veiculo {
                 ", placa='" + placa + '\'' +
                 ", modelo='" + modelo + '\'' +
                 ", marca='" + marca + '\'' +
+                ", date=" + criadoEm +
                 '}';
     }
 
@@ -74,11 +91,11 @@ public class Veiculo {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Veiculo veiculo = (Veiculo) o;
-        return Objects.equals(id, veiculo.id) && Objects.equals(placa, veiculo.placa) && Objects.equals(modelo, veiculo.modelo) && Objects.equals(marca, veiculo.marca);
+        return Objects.equals(id, veiculo.id) && Objects.equals(placa, veiculo.placa) && Objects.equals(modelo, veiculo.modelo) && Objects.equals(marca, veiculo.marca) && Objects.equals(criadoEm, veiculo.criadoEm);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, placa, modelo, marca);
+        return Objects.hash(id, placa, modelo, marca, criadoEm);
     }
 }
