@@ -82,7 +82,7 @@ public class Veiculo {
                 ", placa='" + placa + '\'' +
                 ", modelo='" + modelo + '\'' +
                 ", marca='" + marca + '\'' +
-                ", date=" + criadoEm +
+                ", criadoEm=" + criadoEm +
                 '}';
     }
 
